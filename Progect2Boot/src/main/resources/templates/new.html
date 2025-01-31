@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New User</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #f4f4f9;
+            font-family: Tahoma, serif;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+        input[type="submit"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #3F3F7F;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background: #2C2C5F;
+        }
+    </style>
+</head>
+<body>
+<form method="POST" th:action="@{/users}" th:object="${user}">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name"/>
+
+    <label for="surname">Surname</label>
+    <input type="text" th:field="*{surname}" id="surname"/>
+
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email"/>
+
+    <input type="submit" value="Add User">
+</form>
+</body>
+</html>
